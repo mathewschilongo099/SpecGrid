@@ -1,14 +1,11 @@
-# Media folder where phone/laptop product images are saved
 media:
   input: public/images
   output: /images
-
-# This defines the visual data entry boxes for Pages CMS
 content:
   - name: smartphones
     label: Smartphones Database
     type: collection
-    path: content/smartphones
+    path: src/content/smartphones
     extension: md
     fields:
       - name: title
@@ -36,21 +33,20 @@ content:
         label: Battery Capacity
         type: string
       - name: draft
-        label: Is this a Draft? (Check to keep hidden, uncheck to publish)
+        label: Is this a Draft?
         type: boolean
         default: true
       - name: body
         label: Full Specifications Overview Table / Summary Text
         type: rich-text
-
   - name: laptops
     label: Laptops Database
     type: collection
-    path: content/laptops
+    path: src/content/laptops
     extension: md
     fields:
       - name: title
-        label: Laptop Full Name (e.g., ASUS ROG Zephyrus G14)
+        label: Laptop Full Name
         type: string
       - name: brand
         label: Brand Name
@@ -77,7 +73,7 @@ content:
         label: Battery Watt-Hours (Wh)
         type: string
       - name: draft
-        label: Is this a Draft? (Check to keep hidden, uncheck to publish)
+        label: Is this a Draft?
         type: boolean
         default: true
       - name: body
