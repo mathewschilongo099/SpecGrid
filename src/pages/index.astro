@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+
+const phones = (await getCollection('smartphones')).filter(p => !p.data.draft);
+const laptops = (await getCollection('laptops')).filter(l => !l.data.draft);
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gadget Spec Database</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <header>
+    <h1>Gadget Spec Database</h1>
+    <p>Phone and laptop specifications, updated automatically.</p>
+  </header>
+
+  <section>
+    <h2>Smartphones ({phones.length})</h2>
+    <ul>
+      {phones.map(p => (
+        <li>
+          <a href={`/smartphones/${p.slug}`}>{p.data.title}</a>
+          — {p.data.brand} — {p.data.release_date}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Laptops ({laptops.length})</h2>
+    <ul>
+      {laptops.map(l => (
+        <li>
+          <a href={`/laptops/${l.slug}`}>{l.data.title}</a>
+          — {l.data.brand} — {l.data.release_date}
+        </li>
+      ))}
+    </ul>
+  </section>
+</body>
+</html>
