@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 
 const phones = (await getCollection('smartphones')).filter(p => !p.data.draft);
 const laptops = (await getCollection('laptops')).filter(l => !l.data.draft);
+const tablets = (await getCollection('tablets')).filter(t => !t.data.draft);
 ---
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@ const laptops = (await getCollection('laptops')).filter(l => !l.data.draft);
 <body>
   <header>
     <h1>Gadget Spec Database</h1>
-    <p>Phone and laptop specifications, updated automatically.</p>
+    <p>Phone, tablet, and laptop specifications, updated automatically.</p>
   </header>
 
   <section>
@@ -23,6 +24,18 @@ const laptops = (await getCollection('laptops')).filter(l => !l.data.draft);
         <li>
           <a href={`/smartphones/${p.slug}`}>{p.data.title}</a>
           — {p.data.brand} — {p.data.release_date}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tablets ({tablets.length})</h2>
+    <ul>
+      {tablets.map(t => (
+        <li>
+          <a href={`/tablets/${t.slug}`}>{t.data.title}</a>
+          — {t.data.brand} — {t.data.release_date}
         </li>
       ))}
     </ul>
