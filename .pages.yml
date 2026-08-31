@@ -1,15 +1,11 @@
-media:
-  input: public/images
-  output: /images
-content:
-  - name: smartphones
-    label: Smartphones Database
+- name: tablets
+    label: Tablets Database
     type: collection
-    path: src/content/smartphones
+    path: src/content/tablets
     extension: md
     fields:
       - name: title
-        label: Device Full Name (e.g., Samsung Galaxy S24)
+        label: Tablet Full Name
         type: string
       - name: brand
         label: Brand Name
@@ -38,44 +34,4 @@ content:
         default: true
       - name: body
         label: Full Specifications Overview Table / Summary Text
-        type: rich-text
-  - name: laptops
-    label: Laptops Database
-    type: collection
-    path: src/content/laptops
-    extension: md
-    fields:
-      - name: title
-        label: Laptop Full Name
-        type: string
-      - name: brand
-        label: Brand Name
-        type: string
-      - name: release_date
-        label: Release Announcement Date
-        type: string
-      - name: processor
-        label: CPU / Processor
-        type: string
-      - name: graphics
-        label: GPU / Graphics Card
-        type: string
-      - name: ram
-        label: System Memory (RAM)
-        type: string
-      - name: storage
-        label: Drive Storage Capacity
-        type: string
-      - name: screen_size
-        label: Screen Dimensions & Resolution
-        type: string
-      - name: battery
-        label: Battery Watt-Hours (Wh)
-        type: string
-      - name: draft
-        label: Is this a Draft?
-        type: boolean
-        default: true
-      - name: body
-        label: Detailed Features / Extra Notes
         type: rich-text
