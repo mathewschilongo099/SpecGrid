@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const phones = await getCollection('smartphones');
+  return phones
+    .filter(p => !p.data.draft)
+    .map(p => ({ params: { slug: p.slug }, props: { entry: p } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{d.title} — Specs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <a href="/">&larr; Back to all devices</a>
+  <h1>{d.title}</h1>
+
+  <table>
+    <tbody>
+      <tr><td><strong>Brand</strong></td><td>{d.brand}</td></tr>
+      <tr><td><strong>Release Date</strong></td><td>{d.release_date}</td></tr>
+      <tr><td><strong>Processor</strong></td><td>{d.processor}</td></tr>
+      <tr><td><strong>RAM</strong></td><td>{d.ram}</td></tr>
+      <tr><td><strong>Storage</strong></td><td>{d.storage}</td></tr>
+      <tr><td><strong>Screen Size</strong></td><td>{d.screen_size}</td></tr>
+      <tr><td><strong>Battery</strong></td><td>{d.battery}</td></tr>
+    </tbody>
+  </table>
+
+  <section>
+    <h2>Overview</h2>
+    <Content />
+  </section>
+</body>
+</html>
