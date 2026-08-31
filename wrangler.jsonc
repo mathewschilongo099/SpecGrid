@@ -1,0 +1,10 @@
+{
+  "name": "specgrid",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./dist"
+  },
+  "build": {
+    "command": "npm run build"
+  }
+}
