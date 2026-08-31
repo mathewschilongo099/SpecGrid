@@ -1,0 +1,85 @@
+# Media folder where phone/laptop product images are saved
+media:
+  input: public/images
+  output: /images
+
+# This defines the visual data entry boxes for Pages CMS
+content:
+  - name: smartphones
+    label: Smartphones Database
+    type: collection
+    path: content/smartphones
+    extension: md
+    fields:
+      - name: title
+        label: Device Full Name (e.g., Samsung Galaxy S24)
+        type: string
+      - name: brand
+        label: Brand Name
+        type: string
+      - name: release_date
+        label: Release Announcement Date
+        type: string
+      - name: processor
+        label: Processor / Chipset (CPU)
+        type: string
+      - name: ram
+        label: Memory (RAM options)
+        type: string
+      - name: storage
+        label: Storage Options
+        type: string
+      - name: screen_size
+        label: Display / Screen Size
+        type: string
+      - name: battery
+        label: Battery Capacity
+        type: string
+      - name: draft
+        label: Is this a Draft? (Check to keep hidden, uncheck to publish)
+        type: boolean
+        default: true
+      - name: body
+        label: Full Specifications Overview Table / Summary Text
+        type: rich-text
+
+  - name: laptops
+    label: Laptops Database
+    type: collection
+    path: content/laptops
+    extension: md
+    fields:
+      - name: title
+        label: Laptop Full Name (e.g., ASUS ROG Zephyrus G14)
+        type: string
+      - name: brand
+        label: Brand Name
+        type: string
+      - name: release_date
+        label: Release Announcement Date
+        type: string
+      - name: processor
+        label: CPU / Processor
+        type: string
+      - name: graphics
+        label: GPU / Graphics Card
+        type: string
+      - name: ram
+        label: System Memory (RAM)
+        type: string
+      - name: storage
+        label: Drive Storage Capacity
+        type: string
+      - name: screen_size
+        label: Screen Dimensions & Resolution
+        type: string
+      - name: battery
+        label: Battery Watt-Hours (Wh)
+        type: string
+      - name: draft
+        label: Is this a Draft? (Check to keep hidden, uncheck to publish)
+        type: boolean
+        default: true
+      - name: body
+        label: Detailed Features / Extra Notes
+        type: rich-text
