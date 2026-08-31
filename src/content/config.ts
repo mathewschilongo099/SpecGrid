@@ -16,4 +16,5 @@ const specSchema = z.object({
 export const collections = {
   smartphones: defineCollection({ type: 'content', schema: specSchema }),
   laptops: defineCollection({ type: 'content', schema: specSchema }),
+  tablets: defineCollection({ type: 'content', schema: specSchema }),
 };
